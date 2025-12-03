@@ -11,9 +11,9 @@ public class SFXManager : MonoBehaviour
     public AudioClip BgMusicGameplay;
     public AudioClip BgMusicTitleScreen;
 
-    private AudioSource SFXaudioSource;
-
-    private AudioSource BgMusicAudioSource;
+    public AudioSource SFXaudioSource;
+    public AudioSource pitchedAudioSource;
+    public AudioSource BgMusicAudioSource;
 
     public void Awake()
     {
@@ -31,7 +31,8 @@ public class SFXManager : MonoBehaviour
     //called in the PlayerController Script
     public void PlayerShoot()
     {
-        SFXaudioSource.PlayOneShot(playerShoot);
+        pitchedAudioSource.pitch = Random.Range(0.5f, 1.2f);
+        pitchedAudioSource.PlayOneShot(playerShoot);
     }
 
     //called in the PlayerController Script
@@ -49,7 +50,8 @@ public class SFXManager : MonoBehaviour
     //called in the AsteroidDestroy script
     public void AsteroidExplosion()
     {
-        SFXaudioSource.PlayOneShot(asteroidExplosion);
+        pitchedAudioSource.pitch = Random.Range(0.5f, 1.2f);
+        pitchedAudioSource.PlayOneShot(asteroidExplosion);
     }
 
     
